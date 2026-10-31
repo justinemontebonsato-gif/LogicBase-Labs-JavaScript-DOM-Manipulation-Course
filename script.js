@@ -1,40 +1,20 @@
-                // grabbing the child elements
-/*
-    const GRANDPARENT = document.querySelector('.main-content');
-    const PARENT = GRANDPARENT.children[1];
+// Create new Elements
+const BALSUMCONTAINER = document.querySelector('.balance-summary');
+let divElement = document.createElement('div');
+console.dir(divElement);
+divElement.className = 'new-div';
+divElement.setAttribute('id', 'balsum-new-div');
+divElement.setAttribute('title', 'New Div Element');
 
-    const CHILDREN = PARENT.children;
+const H3ELEMENT = BALSUMCONTAINER.querySelector('h3');
 
-    console.log(CHILDREN);
+// prepend adds something at the beginning of a container
+BALSUMCONTAINER.prepend(divElement);
 
-    console.log(CHILDREN[2]);
+// insertBefore adds something before a thing
+BALSUMCONTAINER.insertBefore(divElement, H3ELEMENT);
 
-    console.log(GRANDPARENT.querySelectorAll('.transaction-item'));
+// best practice. append accepts everything.
+BALSUMCONTAINER.append(divElement);
 
-    console.log(CHILDREN[PARENT.children.length - 1]);
-*/
-
-
-
-                // grabbing the parent elements
-const CHILDREN = document.querySelector('.transaction-item');
-const PARENT = CHILDREN.parentElement;
-const GRANDPARENT = CHILDREN.closest('.main-content');
-console.log(PARENT);
-console.log(GRANDPARENT);
-
-                // grabbing the NEXT sibling element
-let child1 = CHILDREN;
-let child2 = child1.nextElementSibling;
-console.log(child1);
-console.log(child2);
-child2.style.backgroundColor = 'darkgreen';
-
-                // grabbing the PREVIOUS sibling element 
-let child4 = PARENT.children[3];
-child4.style.backgroundColor = 'darkblue';
-let previousOfChild4 = child4.previousElementSibling;
-previousOfChild4.style.backgroundColor = 'lightblue';
-
-console.log(child4);
-console.log(previousOfChild4);
+// oldschool. appendChild only accepts nodes.
