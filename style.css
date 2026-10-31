@@ -70,6 +70,7 @@ body {
 
 .balance-summary {
     margin-bottom: 32px;
+    border:1px solid lightgreen;
 }
 
 .balance-summary h3 {

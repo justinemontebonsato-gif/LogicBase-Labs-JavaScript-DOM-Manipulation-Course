@@ -1,40 +1,34 @@
-                // grabbing the child elements
-/*
-    const GRANDPARENT = document.querySelector('.main-content');
-    const PARENT = GRANDPARENT.children[1];
+const headerElement = document.querySelector('.title');
 
-    const CHILDREN = PARENT.children;
+// headerElement.addEventListener('click', (event) => {
+//     console.log(event);
+// })
 
-    console.log(CHILDREN);
+//click event
+headerElement.addEventListener('click', (event) => {
+    console.log(event);
+})
 
-    console.log(CHILDREN[2]);
+//mouse events
+const balanceSummary = document.querySelector('.balance-summary');
+balanceSummary.addEventListener('mouseleave', (event2) => {
+    console.log(event2);
+})
 
-    console.log(GRANDPARENT.querySelectorAll('.transaction-item'));
+//input events and clipboard events
+const category = document.querySelector('#category');
+category.addEventListener('input', (event3) => {
+    console.log(event3);
+})
 
-    console.log(CHILDREN[PARENT.children.length - 1]);
-*/
+//form events
+const formElement = document.querySelector('form');
+console.log(formElement);
 
-
-
-                // grabbing the parent elements
-const CHILDREN = document.querySelector('.transaction-item');
-const PARENT = CHILDREN.parentElement;
-const GRANDPARENT = CHILDREN.closest('.main-content');
-console.log(PARENT);
-console.log(GRANDPARENT);
-
-                // grabbing the NEXT sibling element
-let child1 = CHILDREN;
-let child2 = child1.nextElementSibling;
-console.log(child1);
-console.log(child2);
-child2.style.backgroundColor = 'darkgreen';
-
-                // grabbing the PREVIOUS sibling element 
-let child4 = PARENT.children[3];
-child4.style.backgroundColor = 'darkblue';
-let previousOfChild4 = child4.previousElementSibling;
-previousOfChild4.style.backgroundColor = 'lightblue';
-
-console.log(child4);
-console.log(previousOfChild4);
+// 1. On form 'submit', event.target is the <form> itself. Forms automatically map any name="..." attribute as a property, allowing shorthand like event.target.amount.value.
+// 2. For regular elements (like buttons or divs), event.target is just the exact DOM node you clicked (e.g. event.target.value). Only forms have that special name-to-property mapping!
+formElement.addEventListener('submit', (event4) => {
+   event4.preventDefault(); 
+    console.log(event4.target.amount.value);
+    console.log(event4.target.category.value); 
+})
