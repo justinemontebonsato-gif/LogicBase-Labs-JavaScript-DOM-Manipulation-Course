@@ -1,38 +1,40 @@
-const HEADERELEMENT = document.getElementById('expense-tracker');
-console.log(HEADERELEMENT);
-const INPUTFIELD = document.getElementById('amount');
-console.log(INPUTFIELD);
+                // grabbing the child elements
+/*
+    const GRANDPARENT = document.querySelector('.main-content');
+    const PARENT = GRANDPARENT.children[1];
 
-// HEADERELEMENT.textContent = 'Expense Tracker Application';
-HEADERELEMENT.textContent = 'Expense Tracker Application';
-console.log(HEADERELEMENT.textContent);
-console.log(HEADERELEMENT.innerText);
-console.log(HEADERELEMENT.innerHTML);
+    const CHILDREN = PARENT.children;
+
+    console.log(CHILDREN);
+
+    console.log(CHILDREN[2]);
+
+    console.log(GRANDPARENT.querySelectorAll('.transaction-item'));
+
+    console.log(CHILDREN[PARENT.children.length - 1]);
+*/
 
 
-HEADERELEMENT.style.color = "red";
-HEADERELEMENT.style.fontSize = "2rem";
-HEADERELEMENT.style.backgroundColor = "chocolate";
 
-const items = document.getElementsByClassName('transaction-item');
-console.log(items);
+                // grabbing the parent elements
+const CHILDREN = document.querySelector('.transaction-item');
+const PARENT = CHILDREN.parentElement;
+const GRANDPARENT = CHILDREN.closest('.main-content');
+console.log(PARENT);
+console.log(GRANDPARENT);
 
-for (let i = 0; i < items.length; i++) {
-    console.log(items[i]);
-}
-for (let i = 0; i < items.length; i++) {
-    items[i].style.backgroundColor = "lightgray";
-    console.log(items[i].textContent);
-}
+                // grabbing the NEXT sibling element
+let child1 = CHILDREN;
+let child2 = child1.nextElementSibling;
+console.log(child1);
+console.log(child2);
+child2.style.backgroundColor = 'darkgreen';
 
-console.log(document.getElementsByTagName('img'));
+                // grabbing the PREVIOUS sibling element 
+let child4 = PARENT.children[3];
+child4.style.backgroundColor = 'darkblue';
+let previousOfChild4 = child4.previousElementSibling;
+previousOfChild4.style.backgroundColor = 'lightblue';
 
-console.log(document.querySelector(".label"));
-console.log(document.querySelectorAll(".label"));
-console.log(document.querySelectorAll("#amount"));
-console.log(document.querySelector("p"));
-console.log(document.querySelectorAll("p"));
-console.log(document.querySelector(".label:nth-child(2)"));
-console.log(document.querySelectorAll(".label:nth-child(2)"));
-
-console.log(document.querySelector('[role="button"]'));
+console.log(child4);
+console.log(previousOfChild4);
